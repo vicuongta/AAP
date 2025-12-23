@@ -20,7 +20,7 @@ mongoose.connect(process.env.MONGODB_URI)
 // API Routes
 app.use('/api/auth', require('./routes/auth.routes'));
 app.use("/uploads", express.static("uploads")); // so files are reachable
-app.use("/api/files", require("./routes/file.routes"));
+// app.use("/api/files", require("./routes/file.routes"));
 
 // Build folder
 const buildPath = path.join(__dirname, "build");

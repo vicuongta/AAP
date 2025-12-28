@@ -39,17 +39,17 @@ export default function HeroSection() {
           </p>
           
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            {/* <Link to={createPageUrl('Dashboard')}> */}
-            <Link>
-              <Button size="xl" showArrow>
+            <Link to={createPageUrl('Dashboard')}>
+              <Button size="lg" className="bg-[#2d6a4f] hover:bg-[#1b4332] text-white rounded-full px-8 py-6 text-lg shadow-lg shadow-[#2d6a4f]/25 group">
                 Get Started Free
+                <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
               </Button>
             </Link>
-            {/* <Link to={createPageUrl('login')}>
+            <Link to={createPageUrl('Dashboard')}>
               <Button size="lg" variant="outline" className="rounded-full px-8 py-6 text-lg border-gray-200 hover:border-[#2d6a4f] hover:text-[#2d6a4f]">
                 Log In
               </Button>
-            </Link> */}
+            </Link>
           </div>
         </motion.div>
         

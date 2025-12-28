@@ -10,7 +10,7 @@ export default function Logo({ className = "", showText = true, size = "default"
   };
 
   return (
-    <Link to={createPageUrl('landing')} className={`flex items-center gap-2.5 ${className}`}>
+    <Link to={createPageUrl('Landing')} className={`flex items-center gap-2.5 ${className}`}>
       <img 
         src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/692bb19476dfbc846144cdbf/94f8a33d9_2.png"
         alt="QBtron Logo"

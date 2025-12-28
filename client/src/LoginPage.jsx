@@ -75,10 +75,10 @@ function LoginPage() {
 
   return (
     <div className="h-screen bg-[#f5f7f5] flex items-center justify-center overflow-hidden px-4">
-      <div className="w-full max-w-sm flex flex-col items-center gap-4 py-4">
+      <div className="w-full max-w-md flex flex-col items-center gap-4 py-4">
         {/* Top logo + brand */}
         <Link 
-          to="/"
+          to="/landing"
           className="flex flex-col items-center gap-3 mb-2 no-underline cursor-pointer"
         >
           <div className="w-12 h-12 rounded-full bg-[#0b5d42] flex items-center justify-center text-white font-bold">

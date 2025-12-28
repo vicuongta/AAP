@@ -12,10 +12,10 @@ export default function Navbar() {
           <Logo />
           
           <div className="hidden md:flex items-center gap-8">
-            <a href="#features" className="text-sm font-medium text-gray-600 hover:text-[#2d6a4f] transition-colors">
+            <a href="#features" className="text-md font-medium text-gray-600 hover:text-[#2d6a4f] transition-colors">
               Features
             </a>
-            <a href="#how-it-works" className="text-sm font-medium text-gray-600 hover:text-[#2d6a4f] transition-colors">
+            <a href="#how-it-works" className="text-md font-medium text-gray-600 hover:text-[#2d6a4f] transition-colors">
               How it Works
             </a>
           </div>

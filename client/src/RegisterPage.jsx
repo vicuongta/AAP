@@ -139,7 +139,7 @@ function RegisterPage() {
 
         {/* Card */}
         <div className="bg-white rounded-3xl shadow-lg p-6 sm:p-8">
-          <div className="space-y-5">
+          <div className="space-y-6">
             <div className="text-center mb-2">
               <h2 className="text-2xl font-extrabold mb-1">Create Your Account</h2>
               <p className="text-sm text-gray-600">

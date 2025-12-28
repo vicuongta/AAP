@@ -59,7 +59,7 @@ export default function HomePage() {
 
         {/* Upload Card Wrapper */}
         <div className="mt-12 w-full max-w-4xl">
-          <div className="rounded-3xl border border-gray-200 bg-white p-6 shadow-sm sm:p-8">
+          <div>  {/* className="rounded-3xl border border-gray-200 bg-white p-6 shadow-sm sm:p-8"> */}
             {/* DropOutlineCard handles file validation + shows Extract button */}
             <DropOutlineCard onFileAdded={handleFileAdded} onSubmit={handleExtract} />
 

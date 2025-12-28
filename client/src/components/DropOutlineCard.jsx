@@ -82,7 +82,8 @@ export default function DropOutlineCard({ onFileAdded, onSubmit }) {
   };
 
   return (
-    <div className="mx-auto w-full max-w-[820px]">
+    // <div className="mx-auto w-full max-w-[820px]">
+    <div>
       {/* OUTER dashed frame (green) */}
       <div
         onDragEnter={handleDrag}

@@ -11,14 +11,14 @@ export default function Navbar() {
         <div className="flex items-center justify-between h-16">
           <Logo />
           
-          <div className="hidden md:flex items-center gap-8">
-            <a href="#features" className="text-sm text-gray-600 hover:text-[#2d6a4f] transition-colors">
+          <div className="hidden md:flex items-center gap-15 pl-15">
+            <a href="#features" className="text-md text-gray-700 hover:text-[#2d6a4f] transition-colors">
               Features
             </a>
-            <a href="#how-it-works" className="text-sm text-gray-600 hover:text-[#2d6a4f] transition-colors">
+            <a href="#how-it-works" className="text-md text-gray-700 hover:text-[#2d6a4f] transition-colors">
               How it Works
             </a>
-            <Link to={createPageUrl('Help')} className="text-sm text-gray-600 hover:text-[#2d6a4f] transition-colors">
+            <Link to={createPageUrl('Help')} className="text-md text-gray-700 hover:text-[#2d6a4f] transition-colors">
               FAQ
             </Link>
           </div>
@@ -31,7 +31,7 @@ export default function Navbar() {
             </Link>
             <Link to={createPageUrl('Dashboard')}>
               <Button className="bg-[#2d6a4f] hover:bg-[#1b4332] text-white rounded-full px-5">
-                Sign Up Free
+                Sign Up
               </Button>
             </Link>
           </div>

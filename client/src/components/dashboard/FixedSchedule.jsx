@@ -2,7 +2,13 @@ import React from 'react';
 import { Calendar, Dumbbell, Briefcase, Bus, BookOpen } from 'lucide-react';
 
 const mockFixedItems = [
-  { id: 1, title: 'Calculus II Class', days: 'Mon, Wed, Fri', time: '10:00 AM', icon: BookOpen },
+  { 
+    id: 1, 
+    title: 'Calculus II Class', 
+    days: 'Mon, Wed, Fri', 
+    time: '10:00 AM', 
+    icon: BookOpen 
+  },
   { id: 2, title: 'Part-time Job', days: 'Tue, Thu', time: '2:00 PM - 6:00 PM', icon: Briefcase },
   { id: 3, title: 'Gym Session', days: 'Mon, Wed, Fri', time: '7:00 AM', icon: Dumbbell },
   { id: 4, title: 'Commute', days: 'Weekdays', time: '8:30 AM', icon: Bus },

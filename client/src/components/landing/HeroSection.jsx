@@ -7,7 +7,7 @@ import { motion } from 'framer-motion';
 
 export default function HeroSection() {
   return (
-    <section className="relative pt-32 pb-20 px-4 overflow-hidden">
+    <section className="relative pt-32 pb-10 px-4 overflow-hidden">
       {/* Background gradients */}
       <div className="absolute inset-0 -z-10">
         <div className="absolute top-20 left-1/4 w-96 h-96 bg-[#2d6a4f]/10 rounded-full blur-3xl opacity-40"></div>
@@ -58,7 +58,7 @@ export default function HeroSection() {
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className="mt-20 relative"
+          className="mt-5 relative"
         >
           <div className="bg-white rounded-2xl shadow-2xl shadow-gray-200/50 border border-gray-100 p-8 max-w-3xl mx-auto">
             <div className="flex items-center justify-center gap-8 flex-wrap">

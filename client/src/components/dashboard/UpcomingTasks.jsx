@@ -104,7 +104,7 @@ export default function UpcomingTasks() {
     : mockTasks.filter(task => task.category === typeFilter);
 
   return (
-    <div className="bg-white rounded-xl border border-gray-100/50 h-[440px] flex flex-col">
+    <div className="bg-white rounded-xl border border-gray-100/50 h-110 flex flex-col">
       <div className="px-4 py-3 border-b border-gray-50">
         <div className="flex items-center justify-between mb-2">
           <div>
@@ -142,14 +142,14 @@ export default function UpcomingTasks() {
           return (
             <div key={task.id} className="px-3 py-2 hover:bg-gray-50/40 transition-colors cursor-pointer">
               <div className="flex items-center gap-2">
-                <div className={cn("w-7 h-7 rounded-lg flex items-center justify-center flex-shrink-0", category.color)}>
+                <div className={cn("w-7 h-7 rounded-lg flex items-center justify-center shrink-0", category.color)}>
                   <CategoryIcon className="w-3.5 h-3.5" />
                 </div>
                 <div className="flex-1 min-w-0">
                   <p className="text-xs font-medium text-gray-800 truncate">{task.title}</p>
                   <p className="text-xs text-gray-400">{task.course}</p>
                 </div>
-                <div className="text-right flex-shrink-0">
+                <div className="text-right shrink-0">
                   <p className={cn(
                     "text-xs font-semibold",
                     daysUntil <= 2 ? "text-rose-500" : daysUntil <= 5 ? "text-amber-600" : "text-gray-500"

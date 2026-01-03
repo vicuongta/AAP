@@ -12,6 +12,11 @@ const initialTasks = [
   { id: 3, title: 'Practice Problem Set', course: 'MATH201', duration: '45 min', completed: false },
   { id: 4, title: 'Read Chapter 4', course: 'PSYCH101', duration: '25 min', completed: false },
   { id: 5, title: 'Watch Tutorial Video', course: 'CS301', duration: '20 min', completed: false },
+  { id: 6, title: 'Summarize Key Concepts', course: 'HIST210', duration: '40 min', completed: false },
+  { id: 7, title: 'Complete Quiz Questions', course: 'BIO150', duration: '35 min', completed: false },
+   { id: 5, title: 'Watch Tutorial Video', course: 'CS301', duration: '20 min', completed: false },
+  { id: 6, title: 'Summarize Key Concepts', course: 'HIST210', duration: '40 min', completed: false },
+  { id: 7, title: 'Complete Quiz Questions', course: 'BIO150', duration: '35 min', completed: false },
 ];
 
 export default function MovableSchedule() {
@@ -30,7 +35,7 @@ export default function MovableSchedule() {
     : tasks.filter(task => task.course === courseFilter);
 
   return (
-    <div className="bg-white rounded-xl border border-gray-100/50 h-full">
+    <div className="bg-white rounded-xl border border-gray-100/50 h-[440px] flex flex-col">
       <div className="px-3 py-2.5 border-b border-gray-50">
         <div className="flex items-center justify-between mb-2">
           <div>
@@ -59,7 +64,7 @@ export default function MovableSchedule() {
           </select>
         </div>
       </div>
-      <div className="divide-y divide-gray-50/80">
+      <div className="flex-1 overflow-y-auto divide-y divide-gray-50/80">
         {filteredTasks.map((task) => (
           <div 
             key={task.id} 

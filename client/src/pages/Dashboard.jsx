@@ -78,7 +78,7 @@ export default function Dashboard() {
             <StatsCard
               title="Total Tasks"
               value="24"
-              subtitle="Across 4 courses"
+              //subtitle="Across 4 courses"
               icon={CheckSquare}
               color="green"
             />
@@ -98,9 +98,9 @@ export default function Dashboard() {
               trend={{ positive: true, value: '12%' }}
             />
             <StatsCard
-              title="Study Hours"
+              title="Weekly Study Hours"
               value="28h"
-              subtitle="This week"
+              // subtitle="This week"
               icon={Calendar}
               color="green"
             />

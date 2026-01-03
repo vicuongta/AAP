@@ -38,6 +38,54 @@ const mockTasks = [
     category: 'reading',
     dueDate: new Date(Date.now() + 86400000 * 3),
     priority: 'low'
+  },
+  {
+    id: 2,
+    title: 'Linear Algebra Quiz',
+    course: 'MATH201',
+    category: 'exam',
+    dueDate: new Date(Date.now() + 86400000 * 5),
+    priority: 'high'
+  },
+  {
+    id: 3,
+    title: 'Research Paper Draft',
+    course: 'ENG102',
+    category: 'project',
+    dueDate: new Date(Date.now() + 86400000 * 7),
+    priority: 'medium'
+  },
+  {
+    id: 4,
+    title: 'Chapter 5-7 Reading',
+    course: 'PSYCH101',
+    category: 'reading',
+    dueDate: new Date(Date.now() + 86400000 * 3),
+    priority: 'low'
+  },
+  {
+    id: 2,
+    title: 'Linear Algebra Quiz',
+    course: 'MATH201',
+    category: 'exam',
+    dueDate: new Date(Date.now() + 86400000 * 5),
+    priority: 'high'
+  },
+  {
+    id: 3,
+    title: 'Research Paper Draft',
+    course: 'ENG102',
+    category: 'project',
+    dueDate: new Date(Date.now() + 86400000 * 7),
+    priority: 'medium'
+  },
+  {
+    id: 4,
+    title: 'Chapter 5-7 Reading',
+    course: 'PSYCH101',
+    category: 'reading',
+    dueDate: new Date(Date.now() + 86400000 * 3),
+    priority: 'low'
   }
 ].sort((a, b) => a.dueDate - b.dueDate);
 
@@ -51,12 +99,12 @@ const categoryConfig = {
 export default function UpcomingTasks() {
   const [typeFilter, setTypeFilter] = useState('all');
 
-  const filteredTasks = typeFilter === 'all' 
-    ? mockTasks 
+  const filteredTasks = typeFilter === 'all'
+    ? mockTasks
     : mockTasks.filter(task => task.category === typeFilter);
 
   return (
-    <div className="bg-white rounded-xl border border-gray-100/50 border-l-2 border-l-[#2d6a4f]">
+    <div className="bg-white rounded-xl border border-gray-100/50 h-[440px] flex flex-col">
       <div className="px-4 py-3 border-b border-gray-50">
         <div className="flex items-center justify-between mb-2">
           <div>
@@ -85,12 +133,12 @@ export default function UpcomingTasks() {
           </select>
         </div>
       </div>
-      <div className="divide-y divide-gray-50/80">
+      <div className="flex-1 overflow-y-auto divide-y divide-gray-50/80">
         {filteredTasks.map((task) => {
           const category = categoryConfig[task.category];
           const CategoryIcon = category.icon;
           const daysUntil = differenceInDays(task.dueDate, new Date());
-          
+
           return (
             <div key={task.id} className="px-3 py-2 hover:bg-gray-50/40 transition-colors cursor-pointer">
               <div className="flex items-center gap-2">

@@ -11,26 +11,26 @@ export default function StatsCard({ title, value, subtitle, icon: Icon, trend, c
   };
 
   return (
-    <div className="bg-white rounded-2xl p-6 border border-gray-100 hover:shadow-lg hover:shadow-gray-100/50 transition-all duration-300">
-      <div className="flex items-start justify-between">
-        <div>
-          <p className="text-sm text-gray-500 font-medium">{title}</p>
-          <p className="text-3xl font-bold text-gray-900 mt-2">{value}</p>
+    <div className="bg-white rounded-xl p-3 border border-gray-100/50 hover:border-gray-200 transition-all duration-200">
+      <div className="flex items-start justify-between gap-2">
+        <div className="flex-1 min-w-0">
+          <p className="text-xs text-gray-500 font-medium mb-1">{title}</p>
+          <p className="text-xl font-bold text-gray-900">{value}</p>
           {subtitle && (
-            <p className="text-sm text-gray-500 mt-1">{subtitle}</p>
+            <p className="text-xs text-gray-400 mt-0.5 truncate">{subtitle}</p>
           )}
           {trend && (
             <p className={cn(
-              "text-sm mt-2 font-medium",
-              trend.positive ? "text-[#2d6a4f]" : "text-rose-600"
+              "text-xs mt-1 font-medium",
+              trend.positive ? "text-[#2d6a4f]" : "text-rose-500"
             )}>
               {trend.positive ? '↑' : '↓'} {trend.value}
             </p>
           )}
         </div>
         {Icon && (
-          <div className={cn("w-12 h-12 rounded-xl flex items-center justify-center", colorMap[color])}>
-            <Icon className="w-6 h-6" />
+          <div className={cn("w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0", colorMap[color])}>
+            <Icon className="w-3.5 h-3.5" />
           </div>
         )}
       </div>

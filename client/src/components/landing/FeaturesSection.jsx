@@ -49,7 +49,7 @@ const colorMap = {
 export default function FeaturesSection() {
   return (
     <section id="features" className="px-4 bg-[#f6f8f6]">
-      <div className="max-w-6xl mx-auto">
+      <div className="max-w-6xl mx-auto py-10 mb-10">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
             Everything you need to stay organized

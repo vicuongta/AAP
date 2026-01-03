@@ -38,16 +38,11 @@ export default function HeroSection() {
             Never miss a deadline again.
           </p>
           
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <Link to={createPageUrl('Dashboard')}>
-              <Button size="lg" className="bg-[#2d6a4f] hover:bg-[#1b4332] text-white rounded-full px-8 py-6 text-lg shadow-lg shadow-[#2d6a4f]/25 group">
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-14">
+            <Link to={createPageUrl('Login')}>
+              <Button size="lg" className="bg-[#2d6a4f] hover:bg-[#1b4332] text-white rounded-full px-8 py-6 text-lg shadow-lg shadow-[#2d6a4f]/25 group cursor-pointer">
                 Get Started Free
-                <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
-              </Button>
-            </Link>
-            <Link to={createPageUrl('Dashboard')}>
-              <Button size="lg" variant="outline" className="rounded-full px-8 py-6 text-lg border-gray-200 hover:border-[#2d6a4f] hover:text-[#2d6a4f]">
-                Log In
+                <ArrowRight className="w-10 h-10 ml-2 group-hover:translate-x-1 transition-transform" />
               </Button>
             </Link>
           </div>
@@ -58,7 +53,7 @@ export default function HeroSection() {
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className="mt-5 relative"
+          className="mt-10 relative"
         >
           <div className="bg-white rounded-2xl shadow-2xl shadow-gray-200/50 border border-gray-100 p-8 max-w-3xl mx-auto">
             <div className="flex items-center justify-center gap-8 flex-wrap">

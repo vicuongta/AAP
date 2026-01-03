@@ -11,7 +11,7 @@ import { motion } from 'framer-motion';
 export default function ManageAccount() {
   const [isSaving, setIsSaving] = useState(false);
   const [saved, setSaved] = useState(false);
-  const [formData, setFormData] = useState({ fullName: 'Alex Johnson', email: 'alex.johnson@university.edu' });
+  const [formValue, setFormData] = useState({ fullName: 'Alex Johnson', email: 'alex.johnson@university.edu' });
 
   const mockUser = { full_name: 'Alex Johnson', email: 'alex.johnson@university.edu' };
 
@@ -49,8 +49,8 @@ export default function ManageAccount() {
           <div className="bg-white rounded-2xl border border-gray-100 p-6">
             <h3 className="text-lg font-semibold text-gray-900 mb-4">Personal Information</h3>
             <div className="space-y-4">
-              <div><Label htmlFor="fullName" className="text-sm font-medium text-gray-700">Full Name</Label><Input id="fullName" value={formData.fullName} onChange={(e) => setFormData({...formData, fullName: e.target.value})} className="mt-1.5 h-11 rounded-xl" /></div>
-              <div><Label htmlFor="email" className="text-sm font-medium text-gray-700">Email Address</Label><Input id="email" type="email" value={formData.email} onChange={(e) => setFormData({...formData, email: e.target.value})} className="mt-1.5 h-11 rounded-xl" /></div>
+              <div><Label htmlFor="fullName" className="text-sm font-medium text-gray-700">Full Name</Label><Input id="fullName" value={formValue.fullName} onChange={(e) => setFormData({...formValue, fullName: e.target.value})} className="mt-1.5 h-11 rounded-xl" /></div>
+              <div><Label htmlFor="email" className="text-sm font-medium text-gray-700">Email Address</Label><Input id="email" type="email" value={formValue.email} onChange={(e) => setFormData({...formValue, email: e.target.value})} className="mt-1.5 h-11 rounded-xl" /></div>
             </div>
             <div className="mt-6 flex justify-end">
               <Button onClick={handleSave} disabled={isSaving} className="bg-[#2d6a4f] hover:bg-[#1b4332] rounded-xl">

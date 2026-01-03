@@ -1,0 +1,2 @@
+Drawer text set from 15px to 18px
+Remove duplicate setting & help from Drawer

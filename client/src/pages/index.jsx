@@ -1,40 +1,34 @@
 import Layout from "./Layout.jsx";
-
 import Landing from "./Landing";
-
 import Dashboard from "./Dashboard";
-
 import UploadSyllabus from "./UploadSyllabus";
-
 import TaskExtraction from "./TaskExtraction";
-
 import WeeklyPlanner from "./WeeklyPlanner";
-
 import TaskList from "./TaskList";
-
 import ManageAccount from "./ManageAccount";
-
 import Settings from "./Settings";
-
 import Help from "./Help";
-
 import Terms from "./Terms";
-
 import Privacy from "./Privacy";
-
 import Error404 from "./Error404";
-
 import Error500 from "./Error500";
-
 import ErrorUnsupportedFile from "./ErrorUnsupportedFile";
-
 import ErrorExtraction from "./ErrorExtraction";
+import LoginPage from "./LoginPage.jsx";
+import RegisterPage from "./RegisterPage.jsx";
+import ResetPassword from "./ResetPassword.jsx";
 
 import { Route, Routes, useLocation } from 'react-router-dom';
 
 const PAGES = {
     
     Landing: Landing,
+
+    Login: LoginPage,
+    
+    Register: RegisterPage,
+
+    ResetPassword: ResetPassword,
     
     Dashboard: Dashboard,
     
@@ -91,18 +85,24 @@ function PagesContent() {
                 <Route path="/" element={<Landing />} />
                 
                 <Route path="/Landing" element={<Landing />} />
+
+                <Route path="/Login" element={<LoginPage />} />
+                
+                <Route path="/Register" element={<RegisterPage />} />
+                
+                <Route path="/ResetPassword" element={<ResetPassword />} />
                 
                 <Route path="/Dashboard" element={<Dashboard />} />
                 
-                <Route path="/UploadSyllabus" element={<UploadSyllabus />} />
+                <Route path="/Upload-Syllabus" element={<UploadSyllabus />} />
                 
-                <Route path="/TaskExtraction" element={<TaskExtraction />} />
+                <Route path="/Task-Extraction" element={<TaskExtraction />} />
                 
-                <Route path="/WeeklyPlanner" element={<WeeklyPlanner />} />
+                <Route path="/Weekly-Planner" element={<WeeklyPlanner />} />
                 
-                <Route path="/TaskList" element={<TaskList />} />
+                <Route path="/Task-List" element={<TaskList />} />
                 
-                <Route path="/ManageAccount" element={<ManageAccount />} />
+                <Route path="/Manage-Account" element={<ManageAccount />} />
                 
                 <Route path="/Settings" element={<Settings />} />
                 
@@ -116,9 +116,9 @@ function PagesContent() {
                 
                 <Route path="/Error500" element={<Error500 />} />
                 
-                <Route path="/ErrorUnsupportedFile" element={<ErrorUnsupportedFile />} />
+                <Route path="/Error-Unsupported-File" element={<ErrorUnsupportedFile />} />
                 
-                <Route path="/ErrorExtraction" element={<ErrorExtraction />} />
+                <Route path="/Error-Extraction" element={<ErrorExtraction />} />
                 
             </Routes>
         </Layout>

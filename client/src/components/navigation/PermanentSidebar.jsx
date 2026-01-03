@@ -6,20 +6,17 @@ import {
   Upload, 
   Calendar, 
   CheckSquare, 
-  Settings, 
-  HelpCircle,
   ChevronLeft,
   ChevronRight
 } from 'lucide-react';
 import { cn } from '@/lib/utils';
+import logo from '../../assets/QBtron.png';
 
 const navItems = [
   { name: 'Dashboard', icon: LayoutDashboard, page: 'Dashboard' },
-  { name: 'Upload Syllabus', icon: Upload, page: 'UploadSyllabus' },
-  { name: 'Weekly Planner', icon: Calendar, page: 'WeeklyPlanner' },
-  { name: 'Task List', icon: CheckSquare, page: 'TaskList' },
-  { name: 'Settings', icon: Settings, page: 'Settings' },
-  { name: 'Help', icon: HelpCircle, page: 'Help' },
+  { name: 'Upload Syllabus', icon: Upload, page: 'Upload-Syllabus' },
+  { name: 'Weekly Planner', icon: Calendar, page: 'Weekly-Planner' },
+  { name: 'Task List', icon: CheckSquare, page: 'Task-List' }
 ];
 
 export default function PermanentSidebar({ collapsed, onToggle }) {
@@ -38,7 +35,7 @@ export default function PermanentSidebar({ collapsed, onToggle }) {
       <div className={cn("pt-6 pb-4 flex items-center justify-between", collapsed ? "px-4" : "px-6")}>
         <Link to={createPageUrl('Landing')} className="flex items-center gap-2.5">
           <img 
-            src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/692bb19476dfbc846144cdbf/94f8a33d9_2.png"
+            src={logo}
             alt="QBtron Logo"
             className="w-8 h-8 object-contain flex-shrink-0"
           />
@@ -69,7 +66,7 @@ export default function PermanentSidebar({ collapsed, onToggle }) {
                 to={createPageUrl(item.page)}
                 title={collapsed ? item.name : undefined}
                 className={cn(
-                  "flex items-center gap-3 rounded-xl transition-all duration-200 text-[15px]",
+                  "flex items-center gap-3 rounded-xl transition-all duration-200 text-[18px]",
                   collapsed ? "px-3 py-3 justify-center" : "px-4 py-3",
                   isActive(item.page) 
                     ? "bg-[#2d6a4f]/10 text-[#2d6a4f] font-medium" 

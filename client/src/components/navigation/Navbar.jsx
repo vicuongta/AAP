@@ -24,13 +24,13 @@ export default function Navbar() {
           </div>
           
           <div className="flex items-center gap-3">
-            <Link to={createPageUrl('Dashboard')}>
-              <Button variant="ghost" className="text-gray-700 hover:text-[#2d6a4f]">
+            <Link to={createPageUrl('Login')}>
+              <Button variant="ghost" className="text-gray-700 hover:text-[#2d6a4f] rounded-full px-5 cursor-pointer">
                 Log in
               </Button>
             </Link>
-            <Link to={createPageUrl('Dashboard')}>
-              <Button className="bg-[#2d6a4f] hover:bg-[#1b4332] text-white rounded-full px-5">
+            <Link to={createPageUrl('Register')}>
+              <Button className="bg-[#2d6a4f] hover:bg-[#1b4332] text-white rounded-full px-5 cursor-pointer">
                 Sign Up
               </Button>
             </Link>

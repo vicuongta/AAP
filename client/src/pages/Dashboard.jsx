@@ -37,6 +37,18 @@ export default function Dashboard() {
       <div className="grid lg:grid-cols-5 gap-12">
         {/* Left Column */}
         <div className="lg:col-span-3 space-y-5">
+          {/* Task Cards */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.4, delay: 0.25 }}
+            className="grid lg:grid-cols-3 gap-4"
+          >
+            <FixedSchedule />
+            <MovableSchedule />
+            <UpcomingTasks />
+          </motion.div>
+          
           {/* Stats Grid */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -79,18 +91,6 @@ export default function Dashboard() {
             transition={{ duration: 0.4, delay: 0.1 }}
           >
             <WeeklyProgressGraph />
-          </motion.div>
-
-          {/* Task Cards */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.4, delay: 0.25 }}
-            className="grid lg:grid-cols-3 gap-4"
-          >
-            <FixedSchedule />
-            <MovableSchedule />
-            <UpcomingTasks />
           </motion.div>
         </div>
 

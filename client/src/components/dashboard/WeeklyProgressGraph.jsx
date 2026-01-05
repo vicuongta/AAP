@@ -1,49 +1,96 @@
 import React from 'react';
-import { BarChart, Bar, XAxis, YAxis, CartesianGrid, ResponsiveContainer } from 'recharts';
+import { BarChart, Bar, XAxis, YAxis, CartesianGrid, ResponsiveContainer, LabelList } from 'recharts';
 
-const weekData = [
-  { day: 'Mon', completed: 4, planned: 5 },
-  { day: 'Tue', completed: 3, planned: 4 },
-  { day: 'Wed', completed: 5, planned: 5 },
-  { day: 'Thu', completed: 2, planned: 6 },
-  { day: 'Fri', completed: 0, planned: 4 },
-  { day: 'Sat', completed: 0, planned: 3 },
-  { day: 'Sun', completed: 0, planned: 2 }
+const courseData = [
+  { course: "CHEM101", completed: 90, color: "#3b82f6" }, // blue
+  { course: "ENG102", completed: 48, color: "#10b981" },  // green
+  { course: "MATH201", completed: 63, color: "#f59e0b" }, // amber
+  { course: "PSYCH101", completed: 25, color: "#8b5cf6" }, // purple
+  { course: "CS301", completed: 93, color: "#ef4444" },   // red
 ];
+
+// Custom bar that draws a light "full height" background + the actual filled bar
+function TintedBar(props) {
+  const { x, y, width, height, payload, background } = props;
+
+  // background is provided when Bar has the `background` prop
+  const bg = background?.y != null
+    ? { x: background.x, y: background.y, width: background.width, height: background.height }
+    : null;
+
+  const color = payload?.color ?? "#9ca3af";
+
+  return (
+    <g>
+      {/* full height tinted background */}
+      {bg && (
+        <rect
+          x={bg.x}
+          y={bg.y}
+          width={bg.width}
+          height={bg.height}
+          rx={8}
+          ry={8}
+          fill={color}
+          opacity={0.18}
+        />
+      )}
+
+      {/* actual filled bar */}
+      <rect
+        x={x}
+        y={y}
+        width={width}
+        height={height}
+        rx={8}
+        ry={8}
+        fill={color}
+      />
+    </g>
+  );
+}
 
 export default function WeeklyProgressGraph() {
   return (
     <div className="bg-white rounded-xl border border-gray-100/50 p-4 mb-5">
-      <h4 className="text-xs font-medium text-gray-500 mb-3">Progress This Week</h4>
-      <ResponsiveContainer width="100%" height={120}>
-        <BarChart data={weekData} margin={{ top: 5, right: 5, left: -20, bottom: 5 }}>
+      <h4 className="text-lg font-bold text-black-700 mb-5">Task Completion by Course</h4>
+      <ResponsiveContainer width="100%" height={200}>
+        <BarChart
+          data={courseData}
+          margin={{ top: 5, right: 5, left: -20 }}
+          barCategoryGap={"25%"}
+        >
           <CartesianGrid strokeDasharray="3 3" stroke="#f0f0f0" vertical={false} />
-          <XAxis 
-            dataKey="day" 
+          <XAxis
+            dataKey="course"
             axisLine={false}
             tickLine={false}
-            tick={{ fill: '#9ca3af', fontSize: 11 }}
+            tick={{ fill: '#9ca3af', fontSize: 13 }}
           />
-          <YAxis 
+          <YAxis
+            domain={[0, 100]}
+            ticks={[0, 20, 40, 60, 80, 100]}
             axisLine={false}
             tickLine={false}
-            tick={{ fill: '#9ca3af', fontSize: 11 }}
+            tick={{ fill: '#9ca3af', fontSize: 12 }}
+            tickFormatter={(v) => `${v}%`}
           />
-          <Bar dataKey="planned" fill="#e5e7eb" radius={[4, 4, 0, 0]} />
-          <Bar dataKey="completed" fill="#2d6a4f" radius={[4, 4, 0, 0]} />
+          <Bar
+            dataKey="completed"
+            fill="#e5e7eb"
+            radius={[4, 4, 0, 0]}
+            shape={<TintedBar />}
+            
+          >
+            <LabelList
+              dataKey={"completed"}
+              position={"top"}
+              formatter={(v) => `${v}%`}
+              style={{ fontSize: 15, fill: "#111827", fontWeight: 600 }}
+            />
+          </Bar>
         </BarChart>
       </ResponsiveContainer>
-      <div className="flex items-center justify-center gap-4 mt-2">
-        <div className="flex items-center gap-1.5">
-          <div className="w-2 h-2 rounded-full bg-[#2d6a4f]"></div>
-          <span className="text-xs text-gray-500">Completed</span>
-        </div>
-        <div className="flex items-center gap-1.5">
-          <div className="w-2 h-2 rounded-full bg-gray-300"></div>
-          <span className="text-xs text-gray-500">Planned</span>
-        </div>
-      </div>
-      <p className="text-xs text-gray-500 text-center mt-3">You're on track this week.</p>
     </div>
   );
 }

@@ -34,7 +34,7 @@ export default function ManageAccount() {
               <div className="relative">
                 <Avatar className="w-24 h-24 border-4 border-gray-100">
                   <AvatarImage src="" />
-                  <AvatarFallback className="bg-gradient-to-br from-[#2d6a4f] to-[#1b4332] text-white text-2xl font-medium">AJ</AvatarFallback>
+                  <AvatarFallback className="bg-linear-to-br from-[#2d6a4f] to-[#1b4332] text-white text-2xl font-medium">AJ</AvatarFallback>
                 </Avatar>
                 <button className="absolute bottom-0 right-0 w-8 h-8 bg-[#2d6a4f] rounded-full flex items-center justify-center text-white hover:bg-[#1b4332] transition-colors shadow-lg"><Camera className="w-4 h-4" /></button>
               </div>

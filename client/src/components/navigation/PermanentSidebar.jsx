@@ -16,7 +16,7 @@ const navItems = [
   { name: 'Dashboard', icon: LayoutDashboard, page: 'Dashboard' },
   { name: 'Upload Syllabus', icon: Upload, page: 'Upload-Syllabus' },
   { name: 'Weekly Planner', icon: Calendar, page: 'Weekly-Planner' },
-  { name: 'Task List', icon: CheckSquare, page: 'Task-List' }
+  { name: 'Task List', icon: CheckSquare, page: 'TaskList' }
 ];
 
 export default function PermanentSidebar({ collapsed, onToggle }) {
@@ -29,7 +29,7 @@ export default function PermanentSidebar({ collapsed, onToggle }) {
   return (
     <aside className={cn(
       "fixed left-0 top-0 h-screen bg-white border-r border-gray-200 z-40 flex flex-col transition-all duration-300",
-      collapsed ? "w-[72px]" : "w-[270px]"
+      collapsed ? "w-18" : "w-67.5"
     )}>
       {/* Logo Area */}
       <div className={cn("pt-6 pb-4 flex items-center justify-between", collapsed ? "px-4" : "px-6")}>
@@ -37,7 +37,7 @@ export default function PermanentSidebar({ collapsed, onToggle }) {
           <img 
             src={logo}
             alt="QBtron Logo"
-            className="w-8 h-8 object-contain flex-shrink-0"
+            className="w-8 h-8 object-contain shrink-0"
           />
           {!collapsed && (
             <span className="text-xl font-semibold tracking-wide">
@@ -74,7 +74,7 @@ export default function PermanentSidebar({ collapsed, onToggle }) {
                 )}
               >
                 <item.icon className={cn(
-                  "w-[18px] h-[18px] flex-shrink-0",
+                  "w-4.5 h-4.5 shrink-0",
                   isActive(item.page) ? "text-[#2d6a4f]" : "text-gray-500"
                 )} />
                 {!collapsed && <span>{item.name}</span>}

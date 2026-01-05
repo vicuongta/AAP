@@ -49,7 +49,7 @@ export default function RecentFiles() {
           return (
             <div key={file.id} className="p-4 hover:bg-gray-50/50 transition-colors cursor-pointer">
               <div className="flex items-center gap-4">
-                <div className="w-10 h-10 rounded-xl bg-[#2d6a4f]/10 flex items-center justify-center flex-shrink-0">
+                <div className="w-10 h-10 rounded-xl bg-[#2d6a4f]/10 flex items-center justify-center shrink-0">
                   <FileText className="w-5 h-5 text-[#2d6a4f]" />
                 </div>
                 <div className="flex-1 min-w-0">

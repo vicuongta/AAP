@@ -63,7 +63,7 @@ export default function DailyCalendar() {
     : null;
 
   return (
-    <div className="bg-white rounded-xl border border-gray-100/50 h-full flex flex-col">
+    <div className="bg-white rounded-xl border border-gray-100/50 h-194 flex flex-col">
       {/* Header */}
       <div className="px-4 py-3 border-b border-gray-50 flex items-center justify-between">
         <h3 className="text-sm font-semibold text-gray-700">Calendar</h3>
@@ -122,7 +122,7 @@ export default function DailyCalendar() {
               className="absolute left-0 right-0 z-10 flex items-center"
               style={{ top: `${currentTimePosition}px` }}
             >
-              <div className="w-2 h-2 rounded-full bg-rose-500 flex-shrink-0"></div>
+              <div className="w-2 h-2 rounded-full bg-rose-500 shrink-0"></div>
               <div className="flex-1 h-0.5 bg-rose-500"></div>
             </div>
           )}
@@ -140,8 +140,8 @@ export default function DailyCalendar() {
 
             return (
               <div key={hour} className="flex items-start gap-3 mb-4">
-                <span className="text-xs text-gray-400 w-12 flex-shrink-0 pt-1">{timeString}</span>
-                <div className="flex-1 border-t border-gray-100 pt-2 min-h-[32px] relative">
+                <span className="text-xs text-gray-400 w-12 shrink-0 pt-1">{timeString}</span>
+                <div className="flex-1 border-t border-gray-100 pt-2 min-h-8 relative">
                   {eventsAtHour.map((event, idx) => (
                     <div
                       key={idx}

@@ -13,10 +13,7 @@ const initialTasks = [
   { id: 4, title: 'Read Chapter 4', course: 'PSYCH101', duration: '25 min', completed: false },
   { id: 5, title: 'Watch Tutorial Video', course: 'CS301', duration: '20 min', completed: false },
   { id: 6, title: 'Summarize Key Concepts', course: 'HIST210', duration: '40 min', completed: false },
-  { id: 7, title: 'Complete Quiz Questions', course: 'BIO150', duration: '35 min', completed: false },
-   { id: 5, title: 'Watch Tutorial Video', course: 'CS301', duration: '20 min', completed: false },
-  { id: 6, title: 'Summarize Key Concepts', course: 'HIST210', duration: '40 min', completed: false },
-  { id: 7, title: 'Complete Quiz Questions', course: 'BIO150', duration: '35 min', completed: false },
+  { id: 7, title: 'Complete Quiz Questions', course: 'BIO150', duration: '35 min', completed: false }
 ];
 
 export default function MovableSchedule() {
@@ -36,25 +33,26 @@ export default function MovableSchedule() {
 
   return (
     <div className="bg-white rounded-xl border border-gray-100/50 h-110 flex flex-col">
-      <div className="px-3 py-2.5 border-b border-gray-50">
+      {/* Header */}
+      <div className="px-4 py-3 border-b border-gray-50">
         <div className="flex items-center justify-between mb-2">
           <div>
-            <h3 className="text-sm font-semibold text-gray-700">Work On These</h3>
+            <h3 className="text-md font-bold text-gray-800">Work On These</h3>
             <p className="text-xs text-gray-400 mt-0.5">Flexible study tasks</p>
           </div>
           <Link to={`${createPageUrl('TaskList')}?section=movable`}>
             <Button variant="ghost" size="sm" className="text-gray-500 hover:text-gray-700 h-7 text-xs px-2">
               See all
-              <ArrowRight className="w-3 h-3 ml-1" />
+              <ArrowRight className="w-3 h-3" />
             </Button>
           </Link>
         </div>
         <div className="flex items-center gap-1">
-          <Filter className="w-3 h-3 text-gray-400" />
+          <Filter className="w-5 h-5 text-gray-400 mr-1" />
           <select
             value={courseFilter}
             onChange={(e) => setCourseFilter(e.target.value)}
-            className="text-xs bg-gray-50 border-0 rounded-md px-2 py-1 text-gray-700 focus:ring-1 focus:ring-[#2d6a4f] outline-none"
+            className="text-sm bg-gray-50 border-0 rounded-md px-2 py-1 text-gray-700 focus:ring-1 focus:ring-[#2d6a4f] outline-none"
           >
             {courses.map(course => (
               <option key={course} value={course}>
@@ -64,6 +62,7 @@ export default function MovableSchedule() {
           </select>
         </div>
       </div>
+      {/* Body */}
       <div className="flex-1 overflow-y-auto divide-y divide-gray-50/80">
         {filteredTasks.map((task) => (
           <div 
@@ -74,11 +73,11 @@ export default function MovableSchedule() {
               <Checkbox 
                 checked={task.completed}
                 onCheckedChange={() => toggleTask(task.id)}
-                className="w-4 h-4 border-gray-300 data-[state=checked]:bg-[#2d6a4f] data-[state=checked]:border-[#2d6a4f]"
+                className="w-4 h-4 border-gray-300 data-[state=checked]:bg-[#2d6a4f] data-[state=checked]:border-[#2d6a4f] mr-1"
               />
               <div className="flex-1 min-w-0">
                 <p className={cn(
-                  "text-xs font-medium text-gray-800 truncate transition-all duration-200",
+                  "text-sm font-medium text-gray-800 truncate transition-all duration-200",
                   task.completed && "line-through text-gray-400"
                 )}>
                   {task.title}

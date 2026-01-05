@@ -74,7 +74,7 @@ export default function Sidebar({ collapsed, onToggle }) {
                 collapsed && "justify-center"
               )}
             >
-              <item.icon className={cn("w-5 h-5 flex-shrink-0", isActive(item.page) && "text-[#2d6a4f]")} />
+              <item.icon className={cn("w-5 h-5 shrink-0", isActive(item.page) && "text-[#2d6a4f]")} />
               {!collapsed && (
                 <span className="text-sm font-medium">{item.name}</span>
               )}

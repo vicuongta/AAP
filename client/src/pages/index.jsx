@@ -100,7 +100,7 @@ function PagesContent() {
                 
                 <Route path="/Weekly-Planner" element={<WeeklyPlanner />} />
                 
-                <Route path="/Task-List" element={<TaskList />} />
+                <Route path="/TaskList" element={<TaskList />} />
                 
                 <Route path="/Manage-Account" element={<ManageAccount />} />
                 

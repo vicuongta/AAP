@@ -10,12 +10,14 @@ export default function AppLayout({ children, user, title, breadcrumb }) {
     <div className="min-h-screen bg-[#f6f8f6]">
       {/* Fixed Permanent Sidebar - Always visible, collapsible */}
       <PermanentSidebar collapsed={sidebarCollapsed} onToggle={() => setSidebarCollapsed(!sidebarCollapsed)} />
-      
+
       {/* Main Content Area - offset by sidebar width */}
-      <div className={cn("transition-all duration-300", sidebarCollapsed ? "ml-[72px]" : "ml-[270px]")}>
+      <div className={cn("transition-all duration-300", sidebarCollapsed ? "ml-18" : "ml-67.5")}>
         <AppHeader user={user} title={title} breadcrumb={breadcrumb} />
         <main className="p-6 lg:p-8">
-          {children}
+          <div className="mx-auto w-full max-w-7xl 2xl:max-w-380">
+            {children}
+          </div>
         </main>
       </div>
     </div>

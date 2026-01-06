@@ -32,7 +32,7 @@ export default function MovableSchedule() {
     : tasks.filter(task => task.course === courseFilter);
 
   return (
-    <div className="bg-white rounded-xl border border-gray-100/50 h-110 flex flex-col">
+    <div className="bg-white rounded-xl border border-gray-100/50 h-90 flex flex-col">
       {/* Header */}
       <div className="px-4 py-3 border-b border-gray-50">
         <div className="flex items-center justify-between mb-2">

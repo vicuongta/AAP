@@ -66,7 +66,7 @@ export default function PermanentSidebar({ collapsed, onToggle }) {
                 to={createPageUrl(item.page)}
                 title={collapsed ? item.name : undefined}
                 className={cn(
-                  "flex items-center gap-3 rounded-xl transition-all duration-200 text-[18px]",
+                  "flex items-center gap-3 rounded-xl transition-all duration-200 text-[18px] lg:text-[16px]",
                   collapsed ? "px-3 py-3 justify-center" : "px-4 py-3",
                   isActive(item.page) 
                     ? "bg-[#2d6a4f]/10 text-[#2d6a4f] font-medium" 

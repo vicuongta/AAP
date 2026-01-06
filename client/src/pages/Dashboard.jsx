@@ -24,12 +24,14 @@ export default function Dashboard() {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.4 }}
-        className="mb-5 flex items-center justify-between"
+        className="mb-5 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between"
       >
-        <div>
-          <h2 className="text-2xl font-bold text-gray-900 mb-1">
-            Welcome back, {mockUser.full_name.split(' ')[0]}!
-          </h2>
+        <h2 className="text-2xl font-bold text-gray-900 mb-1">
+          Welcome back, {mockUser.full_name.split(" ")[0]}!
+        </h2>
+
+        <div className="shrink-0">
+          <FocusClock />
         </div>
       </motion.div>
 
@@ -48,7 +50,7 @@ export default function Dashboard() {
             <MovableSchedule />
             <UpcomingTasks />
           </motion.div>
-          
+
           {/* Stats Grid */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -101,7 +103,6 @@ export default function Dashboard() {
           transition={{ duration: 0.4, delay: 0.2 }}
           className="lg:col-span-2 space-y-5"
         >
-          <FocusClock />
           <DailyCalendar />
         </motion.div>
       </div>

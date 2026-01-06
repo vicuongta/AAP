@@ -1,10 +1,17 @@
-import React, { useState, useEffect, useRef } from "react";
-import { Play, Pause, RotateCcw, Clock, MoreHorizontal } from "lucide-react";
+import React, { useEffect, useRef, useState } from "react";
+import { Play, Pause, RotateCcw, Clock } from "lucide-react";
 import { cn } from "@/lib/utils";
 
+const PRESETS = {
+  study: 25,
+  break: 5,
+  long: 15,
+};
+
 export default function FocusClock() {
-  const [duration, setDuration] = useState(25); // minutes
-  const [timeLeft, setTimeLeft] = useState(25 * 60); // seconds
+  const [mode, setMode] = useState("study"); // "study" | "break" | "long"
+  const [duration, setDuration] = useState(PRESETS.study); // minutes
+  const [timeLeft, setTimeLeft] = useState(PRESETS.study * 60); // seconds
   const [isRunning, setIsRunning] = useState(false);
   const [showDurationPicker, setShowDurationPicker] = useState(false);
   const intervalRef = useRef(null);
@@ -21,10 +28,12 @@ export default function FocusClock() {
         });
       }, 1000);
     } else {
-      clearInterval(intervalRef.current);
+      if (intervalRef.current) clearInterval(intervalRef.current);
     }
 
-    return () => clearInterval(intervalRef.current);
+    return () => {
+      if (intervalRef.current) clearInterval(intervalRef.current);
+    };
   }, [isRunning, timeLeft]);
 
   const minutes = Math.floor(timeLeft / 60);
@@ -35,6 +44,15 @@ export default function FocusClock() {
     setTimeLeft(duration * 60);
   };
 
+  const handleModeChange = (nextMode) => {
+    setMode(nextMode);
+    const nextDuration = PRESETS[nextMode];
+    setDuration(nextDuration);
+    setTimeLeft(nextDuration * 60);
+    setIsRunning(false);
+    setShowDurationPicker(false);
+  };
+
   const handleDurationChange = (newDuration) => {
     setDuration(newDuration);
     setTimeLeft(newDuration * 60);
@@ -43,76 +61,99 @@ export default function FocusClock() {
   };
 
   return (
-    <div className="bg-white rounded-xl border border-gray-100/50 shadow-sm px-4 py-3 relative">
-      {/* Header */}
-      <div className="flex items-center justify-between">
-        <h3 className="text-lg font-semibold text-gray-900">Focus Timer</h3>
+    <div className="relative w-full max-w-[420px]">
+      {/* pill container */}
+      <div className="flex items-center gap-3 rounded-full border border-gray-200 bg-white shadow-sm px-3 py-2">
+        {/* segmented tabs */}
+        <div className="flex items-center rounded-full bg-gray-100 p-1">
+          {[
+            { key: "study", label: "Study" },
+            { key: "break", label: "Break" },
+            { key: "long", label: "Long" },
+          ].map((t) => {
+            const active = mode === t.key;
+            return (
+              <button
+                key={t.key}
+                onClick={() => handleModeChange(t.key)}
+                className={cn(
+                  "px-3 py-1.5 text-sm rounded-full transition",
+                  active
+                    ? "bg-[#2d6a4f] text-white shadow-sm"
+                    : "text-gray-600 hover:text-gray-900"
+                )}
+              >
+                {t.label}
+              </button>
+            );
+          })}
+        </div>
 
-        {/* optional menu button */}
-        <button className="w-8 h-8 rounded-lg flex items-center justify-center text-gray-500 hover:bg-gray-50">
-          <MoreHorizontal className="w-5 h-5 cursor-pointer" />
-        </button>
-      </div>
-
-      {/* Body */}
-      <div className="flex justify-center items-center gap-5">
-        <div className="text-3xl font-bold font-mono tracking-tight text-gray-900">
+        {/* time */}
+        <div className="flex-1 text-center font-mono font-bold tracking-tight text-[20px] md:text-[22px] text-gray-900">
           {String(minutes).padStart(2, "0")}:{String(seconds).padStart(2, "0")}
         </div>
 
-        <div className="flex items-center gap-3">
-          {/* Reset (small) */}
+        {/* controls */}
+        <div className="flex items-center gap-2">
+          {/* reset */}
           <button
             onClick={handleReset}
-            className="w-8 h-8 rounded-lg flex items-center justify-center text-gray-500 hover:bg-gray-50 cursor-pointer"
+            className="w-9 h-9 rounded-full flex items-center justify-center text-gray-500 hover:bg-gray-50"
+            title="Reset"
           >
-            <RotateCcw className="w-4 h-4" />
+            <RotateCcw className="w-4.5 h-4.5" />
           </button>
 
-          {/* Play/Pause (big) */}
+          {/* play/pause */}
           <button
             onClick={() => setIsRunning((v) => !v)}
             disabled={timeLeft === 0}
             className={cn(
-              "w-10 h-10 rounded-full flex items-center justify-center transition-colors cursor-pointer",
+              "w-10 h-10 rounded-full flex items-center justify-center transition-colors",
               timeLeft === 0
                 ? "bg-gray-200 text-gray-400 cursor-not-allowed"
                 : "bg-[#2d6a4f] text-white hover:bg-[#1b4332]"
             )}
+            title={isRunning ? "Pause" : "Start"}
           >
             {isRunning ? <Pause className="w-5 h-5" /> : <Play className="w-5 h-5" />}
           </button>
 
-          {/* Duration picker (small clock) */}
+          {/* duration picker */}
           <button
             onClick={() => setShowDurationPicker((v) => !v)}
             disabled={isRunning}
             className={cn(
-              "w-8 h-8 rounded-lg flex items-center justify-center transition-colors cursor-pointer",
-              isRunning
-                ? "text-gray-300 cursor-not-allowed"
-                : "text-gray-500 hover:bg-gray-50"
+              "w-9 h-9 rounded-full flex items-center justify-center transition",
+              isRunning ? "text-gray-300 cursor-not-allowed" : "text-gray-500 hover:bg-gray-50"
             )}
+            title="Set duration"
           >
-            <Clock className="w-4 h-4" />
+            <Clock className="w-4.5 h-4.5" />
           </button>
         </div>
       </div>
 
-      {/* Duration Picker dropdown */}
+      {/* dropdown */}
       {showDurationPicker && (
-        <div className="absolute top-full right-3 mt-2 bg-white rounded-lg shadow-lg border border-gray-200 p-2 z-10">
-          <div className="flex flex-col gap-1">
-            {[15, 25, 30, 45, 60].map((min) => (
+        <div className="absolute right-2 top-full mt-2 w-44 rounded-xl border border-gray-200 bg-white shadow-lg p-2 z-10">
+          <div className="text-xs font-semibold text-gray-500 px-2 py-1">
+            Duration (min)
+          </div>
+          <div className="grid grid-cols-3 gap-1 p-1">
+            {[5, 10, 15, 20, 25, 30, 45, 60].map((min) => (
               <button
                 key={min}
                 onClick={() => handleDurationChange(min)}
                 className={cn(
-                  "px-3 py-1.5 rounded text-xs font-medium text-left transition-colors",
-                  duration === min ? "bg-[#2d6a4f] text-white" : "text-gray-700 hover:bg-gray-50"
+                  "rounded-lg py-1.5 text-sm font-medium transition",
+                  duration === min
+                    ? "bg-[#2d6a4f] text-white"
+                    : "bg-gray-50 text-gray-700 hover:bg-gray-100"
                 )}
               >
-                {min} min
+                {min}
               </button>
             ))}
           </div>

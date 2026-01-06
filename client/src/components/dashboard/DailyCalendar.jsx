@@ -63,7 +63,7 @@ export default function DailyCalendar() {
     : null;
 
   return (
-    <div className="bg-white rounded-xl border border-gray-100/50 h-194 flex flex-col">
+    <div className="bg-white rounded-xl border border-gray-100/50 h-208 flex flex-col">
       {/* Header */}
       <div className="px-4 py-3 border-b border-gray-50 flex items-center justify-between">
         <h3 className="text-sm font-semibold text-gray-700">Calendar</h3>
@@ -114,7 +114,7 @@ export default function DailyCalendar() {
       </div>
 
       {/* Timeline View */}
-      <div className="flex-1 overflow-y-auto px-4 py-3">
+      <div className="flex-1 px-4 py-3">
         <div className="relative">
           {/* Current Time Indicator */}
           {currentTimePosition !== null && (

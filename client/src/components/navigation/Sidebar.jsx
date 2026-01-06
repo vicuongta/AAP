@@ -16,11 +16,9 @@ import { cn } from '@/lib/utils';
 
 const navItems = [
   { name: 'Dashboard', icon: LayoutDashboard, page: 'Dashboard' },
-  { name: 'Upload Syllabus', icon: Upload, page: 'UploadSyllabus' },
-  { name: 'Weekly Planner', icon: Calendar, page: 'WeeklyPlanner' },
+  { name: 'Upload Syllabus', icon: Upload, page: 'Upload-Syllabus' },
+  { name: 'Weekly Planner', icon: Calendar, page: 'Weekly-Planner' },
   { name: 'Task List', icon: CheckSquare, page: 'TaskList' },
-  { name: 'Settings', icon: Settings, page: 'Settings' },
-  { name: 'Help', icon: HelpCircle, page: 'Help' },
 ];
 
 export default function Sidebar({ collapsed, onToggle }) {
@@ -76,7 +74,7 @@ export default function Sidebar({ collapsed, onToggle }) {
             >
               <item.icon className={cn("w-5 h-5 shrink-0", isActive(item.page) && "text-[#2d6a4f]")} />
               {!collapsed && (
-                <span className="text-sm font-medium">{item.name}</span>
+                <span className="text-xs font-medium">{item.name}</span>
               )}
             </Link>
           ))}
